@@ -1,0 +1,107 @@
+History of Redux
+
+Redux was created in 2015 by Dan Abramov and Andrew Clark.
+
+It was inspired by:
+
+Flux (Facebook's state management pattern)
+Elm (a functional programming language)
+
+The goal of Redux was to make application state predictable, easy to debug, and manageable in large JavaScript applications, especially React apps.
+
+Before Redux, managing state between many React components became difficult as applications grew.
+
+What is Redux?
+
+Redux is a state management library for JavaScript applications.
+
+It provides a central store where all application data (state) is kept, allowing different components to access and update that data in a predictable way.
+
+Think of Redux as a single source of truth for your app's data.
+
+How Redux Works
+
+Redux follows a simple flow:
+
+Component
+    ↓
+Dispatch Action
+    ↓
+Reducer
+    ↓
+Store Updates
+    ↓
+Component Re-renders
+Main Concepts
+1. Store
+
+The store holds the entire application state.
+
+const store = configureStore({
+  reducer: counterReducer
+});
+2. Action
+
+An action is an object that describes what happened.
+
+{
+  type: "counter/increment"
+}
+3. Reducer
+
+A reducer is a function that updates the state based on an action.
+
+function counterReducer(state = { value: 0 }, action) {
+  switch (action.type) {
+    case "counter/increment":
+      return { value: state.value + 1 };
+    default:
+      return state;
+  }
+}
+4. Dispatch
+
+Dispatch sends an action to Redux.
+
+dispatch({ type: "counter/increment" });
+Why Use Redux?
+
+✅ Centralized state management
+✅ Easier debugging with Redux DevTools
+✅ Predictable state updates
+✅ Better for large applications
+✅ Data sharing between components becomes easier
+
+Redux Toolkit (Modern Redux)
+
+Today, developers usually use Redux Toolkit (RTK) because it reduces boilerplate code.
+
+Example:
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: { value: 0 },
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
+    }
+  }
+});
+
+export const { increment } = counterSlice.actions;
+export default counterSlice.reducer;
+Simple Real-World Example
+
+Imagine an e-commerce website:
+
+User adds a product to cart.
+Cart data is stored in Redux Store.
+Navbar can show cart count.
+Cart page can show cart items.
+Checkout page can access the same cart data.
+
+All components use the same centralized state without passing props through many components.
+
+In one line: Redux is a state management library that stores application data in a central store and updates it through actions and reducers in a predictable way.
