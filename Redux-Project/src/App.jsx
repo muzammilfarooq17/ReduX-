@@ -1,8 +1,12 @@
+import { fetchPhotos } from "./api/mediaApi"
 
 const App = () => {
   return (
     <div className="h-screen w-full text-white bg-gray-950 text-6xl" >
-      i am a man of  habiba
+      <button onClick={()=>{
+        fetchPhotos()
+      }}
+       >Get Photos</button>
     </div>
   )
 }
