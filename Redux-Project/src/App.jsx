@@ -1,9 +1,14 @@
-import { fetchGifts, fetchPhotos, fetchVideos } from "./api/mediaApi"
-
+// import { fetchGifts, fetchPhotos, fetchVideos } from "./api/mediaApi"
+import SearchBar from './components/SearchBar'
 const App = () => {
   return (
     <div className="h-screen p-4 w-full text-white bg-gray-950 text-6xl" >
-      <button className="p-6 text-4xl text-pink-300 " onClick={async ()=>{
+      <SearchBar/>
+
+
+
+
+      {/* <button className="p-6 text-4xl text-pink-300 " onClick={async ()=>{
         const data = await fetchPhotos()
 
         console.log(data.results);
@@ -32,7 +37,7 @@ const App = () => {
 
         
       }}
-       >Get Gifts</button>
+       >Get Gifts</button> */}
 
 
     </div>
