@@ -33,7 +33,7 @@ export async function fetchVideos(query = "virat kholi", per_page = 15){
 
 
 // GIPHY API INTEGRATION
-export async function fetchGifts(query ="sad", limit = 15, offset = 0){
+export async function fetchGifs(query ="sad", limit = 15, offset = 0){
   const res = await axios.get("https://api.giphy.com/v1/gifs/search",{
     params:{api_key:GIPHY_KEY,
       q:query,
